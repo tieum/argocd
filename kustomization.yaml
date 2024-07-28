@@ -5,3 +5,7 @@ resources:
   - https://raw.githubusercontent.com/argoproj/argo-cd/v2.11.7/manifests/install.yaml
   - argocd.yaml #self-reference
   - argocd-apps.yaml #apps are in another repo
+  - cmp-plugin.yaml #avp
+
+patchesStrategicMerge:
+- argocd-repo-server.yaml #avp patches
