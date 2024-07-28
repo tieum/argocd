@@ -6,6 +6,6 @@ resources:
   - argocd.yaml #self-reference
   - argocd-apps.yaml #apps are in another repo
   - cmp-plugin.yaml #avp
-
+  - test-secret.yaml #test sops install
 patches:
   - path: argocd-repo-server.yaml #avp patches
