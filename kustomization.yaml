@@ -3,4 +3,5 @@ kind: Kustomization
 
 resources:
   - https://raw.githubusercontent.com/argoproj/argo-cd/v2.11.7/manifests/install.yaml
-  - argocd.yaml
+  - argocd.yaml #self-reference
+  - argocd-apps.yaml #apps are in another repo

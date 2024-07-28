@@ -1,0 +1,16 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: argocd-apps
+  namespace: argocd
+spec:
+  destination:
+    name: in-cluster
+    namespace: argocd
+  project: default
+  source:
+    path: .
+    repoURL: https://github.com/tieum/argocd-apps.git
+    targetRevision: main
+  syncPolicy:
+    automated: {}
