@@ -5,6 +5,7 @@ metadata:
   name: argocd-server-ingress
   namespace: argocd
   annotations:
+    external-dns.alpha.kubernetes.io/hostname: <argocd | jsonPath {.ingress.host}>
     nginx.ingress.kubernetes.io/force-ssl-redirect: "false"
     nginx.ingress.kubernetes.io/ssl-passthrough: "true"
     avp.kubernetes.io/path: "secrets.sops.yaml"
