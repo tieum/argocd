@@ -3,9 +3,9 @@ kind: Kustomization
 
 resources:
   - https://raw.githubusercontent.com/argoproj/argo-cd/v2.11.7/manifests/install.yaml
-  - argocd.yaml #self-reference
-  - argocd-apps.yaml #apps are in another repo
-  - cmp-plugin.yaml #avp
+  - application/argocd.yaml #self-reference
+  - application/argocd-apps.yaml #apps are in another repo
+  - config/cmp-plugin.yaml #avp
   - test-secret.yaml #test sops install
 patches:
-  - path: argocd-repo-server.yaml #avp patches
+  - path: patch/argocd-repo-server.yaml #avp patches
