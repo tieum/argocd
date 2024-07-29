@@ -66,9 +66,9 @@ data:
             - "-c"
             - "find . -name '*.yaml' | xargs -I {} grep \"<path\\|avp\\.kubernetes\\.io\" {} | grep ."
       generate:
-        command:
-          - AVP_TYPE=sops argocd-vault-plugin
-          - generate
-          - "."
+        command: [sh, -c]
+        args:
+          - |
+            AVP_TYPE=sops argocd-vault-plugin generate .
       lockRepo: false
 ---
