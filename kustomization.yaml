@@ -12,3 +12,4 @@ patches:
   - path: patch/argocd-cm.yaml
   - path: patch/argocd-cmd-params-cm.yaml
   - path: patch/argocd-repo-server.yaml #avp patches
+  - path: patch/argocd-rbac-cm.yaml
