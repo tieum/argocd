@@ -7,8 +7,8 @@ metadata:
   annotations:
     external-dns.alpha.kubernetes.io/hostname: <argocd | jsonPath {.ingress.host}>
     cert-manager.io/cluster-issuer: "letsencrypt-staging"
-    nginx.ingress.kubernetes.io/force-ssl-redirect: "false"
-    nginx.ingress.kubernetes.io/backend-protocol: "HTTP"
+    nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
+    nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
     avp.kubernetes.io/path: "secrets.sops.yaml"
 spec:
   ingressClassName: nginx
