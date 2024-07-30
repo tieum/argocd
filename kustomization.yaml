@@ -9,5 +9,6 @@ resources:
   - config/ingress.yaml #nginx ingress
   - test-secret.yaml #test sops install
 patches:
+  - path: patch/argocd-cm.yaml
   - path: patch/argocd-cmd-params-cm.yaml
   - path: patch/argocd-repo-server.yaml #avp patches

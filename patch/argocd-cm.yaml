@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: argocd-cm
+  annotations:
+    avp.kubernetes.io/path: "secrets.sops.yaml"
+data:
+  url:  https://<argocd | jsonPath {.ingress.host}>
+  dex.config: |
+    connectors:
+      - type: github
+        id: github
+        name: GitHub
+        config:
+          clientID: <argocd | jsonPath {.dex.clientid}>
+          clientSecret: <argocd | jsonPath {.dex.clientsecret}>
