@@ -14,3 +14,9 @@ data:
         config:
           clientID: <argocd | jsonPath {.dex.clientid}>
           clientSecret: <argocd | jsonPath {.dex.clientsecret}>
+      - type: github
+        id: github-another
+        name: Okta
+        config:
+          clientID: <argocd | jsonPath {.dex.clientid}>
+          clientSecret: <argocd | jsonPath {.dex.clientsecret}>
