@@ -3,13 +3,13 @@ kind: Kustomization
 
 resources:
   - https://raw.githubusercontent.com/argoproj/argo-cd/v2.11.7/manifests/install.yaml
-  - application/argocd.yaml #self-reference
-  - application/argocd-apps.yaml #apps are in another repo
-  - config/cmp-plugin.yaml #avp
-  - config/ingress.yaml #nginx ingress
-  - test-secret.yaml #test sops install
+  - application/argocd.yaml # self-reference
+  - application/argocd-apps.yaml # apps are in another repo
+  - config/cmp-plugin.yaml # avp
+  - config/ingress.yaml # nginx ingress
+  - config/github-private.yaml # private repo deploy key
 patches:
   - path: patch/argocd-cm.yaml
   - path: patch/argocd-cmd-params-cm.yaml
-  - path: patch/argocd-repo-server.yaml #avp patches
+  - path: patch/argocd-repo-server.yaml # avp patches
   - path: patch/argocd-rbac-cm.yaml
