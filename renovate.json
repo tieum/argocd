@@ -1,0 +1,36 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "config:recommended"
+  ],
+  "customManagers": [
+    {
+      "customType": "regex",
+      "fileMatch": [
+        "^kustomization.yaml$"
+      ],
+      "matchStrings": [
+        ".*\\/argoproj\\/argo-cd\\/(?<currentValue>v\\d+\\.\\d+\\.\\d+?)\\/.*",
+        ".*app\\.kubernetes\\.io\\/version: (?<currentValue>v\\d+\\.\\d+\\.\\d+?)\\n"
+      ],
+      "datasourceTemplate": "github-tags",
+      "depNameTemplate": "argoproj/argo-cd"
+    }
+  ],
+  "packageRules": [
+    {
+      "matchPackageNames": [
+        "argoproj/argo-cd"
+      ],
+      "matchManagers": [
+        "custom.regex"
+      ],
+      "commitMessageTopic": "{{depName}}",
+      "matchUpdateTypes": [
+        "minor",
+        "patch"
+      ],
+      "automerge": true
+    }
+  ]
+}
