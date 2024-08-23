@@ -32,5 +32,9 @@
       ],
       "automerge": true
     }
-  ]
+  ],
+  "automergeType": "pr",
+  "ignoreTests": true,
+  "platformAutomerge": true,
+  "automergeStrategy": "fast-forward"
 }
