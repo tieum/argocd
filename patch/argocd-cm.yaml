@@ -20,3 +20,8 @@ data:
         config:
           clientID: <argocd | jsonPath {.dex.clientid}>
           clientSecret: <argocd | jsonPath {.dex.clientsecret}>
+  resource.customizations.ignoreDifferences.all: |
+    jsonPointers:
+    - /spec/template/spec/hostUsers
+    - /spec/jobTemplate/spec/template/spec/hostUsers
+
