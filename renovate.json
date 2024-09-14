@@ -15,13 +15,22 @@
       ],
       "datasourceTemplate": "github-tags",
       "depNameTemplate": "argoproj/argo-cd"
+    },
+    {
+      "customType": "regex",
+      "fileMatch": [
+        "^patch/.+\\.yaml$"
+      ],
+      "matchStrings": [
+        "image: (?<registry>.*)\\/(?<repo>.*)\\/(?<name>.*):(?<currentValue>.*)\\s+"
+      ],
+      "registryUrlTemplate": "https://{{registry}}",
+      "depNameTemplate": "{{repo}}/{{name}}",
+      "datasourceTemplate": "docker"
     }
   ],
   "packageRules": [
     {
-      "matchPackageNames": [
-        "argoproj/argo-cd"
-      ],
       "matchManagers": [
         "custom.regex"
       ],
