@@ -39,6 +39,10 @@
         "minor",
         "patch"
       ],
+      "matchDepNames": [
+        "/argocd/"
+      ],
+      "groupName": "argocd",
       "automerge": true
     }
   ],
