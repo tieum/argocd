@@ -34,11 +34,15 @@
       "matchManagers": [
         "custom.regex"
       ],
-      "commitMessageTopic": "{{depName}}",
       "matchUpdateTypes": [
         "minor",
         "patch"
       ],
+      "matchPackageNames": [
+        "/argo/"
+      ],
+      "commitMessageTopic": "argoproj/argocd",
+      "groupName": "argoproj-argocd-{{{newMajor}}}{{#if separateMinorPatch}}{{#if isPatch}}.{{{newMinor}}}{{/if}}{{/if}}.x",
       "automerge": true
     }
   ],
