@@ -34,11 +34,16 @@
       "matchManagers": [
         "custom.regex"
       ],
-      "commitMessageTopic": "{{depName}}",
+      "commitMessageTopic": "update",
+      "branchTopic": "{{depNameSanitized}}-{{{newMajor}}}{{#if separateMinorPatch}}{{#if isPatch}}.{{{newMinor}}}{{/if}}{{/if}}.x",
       "matchUpdateTypes": [
         "minor",
         "patch"
       ],
+      "matchPackageNames": [
+        "argoproj\\/*"
+      ],
+      "groupName": "argocd",
       "automerge": true
     }
   ],
