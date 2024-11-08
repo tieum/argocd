@@ -16,6 +16,29 @@ spec:
             name: argocd-server
             port:
               name: http
-  tls: # < placing a host in the TLS config will determine what ends up in the cert's subjectAltNames
+  tls:
   - hosts:
     - argocd
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: argocd-webhook-funnel
+  namespace: argocd
+  annotations:
+    tailscale.com/funnel: "true"
+spec:
+  ingressClassName: tailscale
+  rules:
+  - http:
+      paths:
+      - path: /api/webhook
+        pathType: Exact
+        backend:
+          service:
+            name: argocd-server
+            port:
+              name: http
+  tls:
+  - hosts:
+    - argocd-webhook-funnel
