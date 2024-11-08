@@ -5,5 +5,6 @@ metadata:
     managed-by: argocd.argoproj.io
   name: argocd-cmd-params-cm
 data:
-  server.insecure: "false"
+  server.insecure: "true"
   server.log.format: "json"
+  "server.content.security.policy": "frame-ancestors 'self';"

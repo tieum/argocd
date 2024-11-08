@@ -5,7 +5,7 @@ metadata:
   annotations:
     avp.kubernetes.io/path: "secrets.sops.yaml"
 data:
-  url:  https://<argocd | jsonPath {.ingress.host}>
+  url:  https://<argocd | jsonPath {.url}>
   dex.config: |
     connectors:
       - type: github

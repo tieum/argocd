@@ -4,17 +4,10 @@ kind: Ingress
 metadata:
   name: argocd-server-ingress
   namespace: argocd
-  annotations:
-    external-dns.alpha.kubernetes.io/hostname: <argocd | jsonPath {.ingress.host}>
-    cert-manager.io/cluster-issuer: "letsencrypt-prod"
-    nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
-    nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
-    avp.kubernetes.io/path: "secrets.sops.yaml"
 spec:
-  ingressClassName: nginx
+  ingressClassName: tailscale
   rules:
-  - host: <argocd | jsonPath {.ingress.host}>
-    http:
+  - http:
       paths:
       - path: /
         pathType: Prefix
@@ -25,5 +18,4 @@ spec:
               name: http
   tls: # < placing a host in the TLS config will determine what ends up in the cert's subjectAltNames
   - hosts:
-    - <argocd | jsonPath {.ingress.host}>
-    secretName: argocd-ingress-cert 
+    - argocd
